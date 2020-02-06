@@ -8,6 +8,7 @@ import 'bulma/css/bulma.css';
 import './styles.scss';
 
 const store = createStore(carReducer);
+console.log("Store: ", store)
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(<Provider store={store}><App /></Provider>, rootElement);

@@ -17,17 +17,20 @@ const initialState = {
     ]
   };
 
+// reducer will return new state based on the incoming action.type
 const carReducer = (state = initialState, action) => {
     switch(action.type) {
       case "ADD_FEATURES":
         return {
           ...state,
-          AdditionalFeature: action.payload
+          //AdditionalFeatures: [...state.AdditionalFeatures, action.payload]
+          features: [...state.features, action.payload]
         }
       case "REMOVE_FEATURES":
+        const newFeatures = state.car.feature.filter(AddedFeature => AddedFeature !== action.payload)
         return {
           ...state,
-          AddedFeature: !action.payload
+          features: newFeatures
         }
         default:
             return state;

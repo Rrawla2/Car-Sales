@@ -1,6 +1,6 @@
-import React, { useState, useReducer } from 'react';
+import React from 'react';
 import { connect } from "react-redux";
-import { addFeatures } from "./actions/actions";
+import { addFeatures, removeFeatures } from "./actions/actions";
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
@@ -12,12 +12,14 @@ const App = (props) => {
   console.log("Props from App: ", props)
  
   const removeFeature = item => {
+    console.log("item from RemoveFeature: ", item)
     // dispatch an action here to remove an item
-
+    props.removeFeature(item)
   };
 
   const buyItem = item => {
     // dipsatch an action here to add an item
+    props.buyItem(item)
   };
 
   return (
@@ -42,4 +44,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { addFeatures })(App);
+export default connect(mapStateToProps, { addFeatures, removeFeatures })(App);
