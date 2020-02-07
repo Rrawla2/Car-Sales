@@ -39,6 +39,11 @@ const carReducer = (state = initialState, action) => {
             features:  newFeatures
         }
       }
+      case "UPDATE_PRICE":
+        return {
+          ...state,
+          additionalPrice: state.additionalPrice + action.payload
+        }
         default:
             return state;
     }
