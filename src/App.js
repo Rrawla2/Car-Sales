@@ -14,22 +14,22 @@ const App = (props) => {
   const removeFeature = item => {
     console.log("item from RemoveFeature: ", item)
     // dispatch an action here to remove an item
-    props.removeFeature(item)
+    props.removeFeatures(item)
   };
 
   const buyItem = item => {
     // dipsatch an action here to add an item
-    props.buyItem(item)
+    props.addFeatures(item)
   };
 
   return (
     <div className="boxes">
       <div className="box">
         <Header car={props.car} />
-        <AddedFeatures car={props.car} />
+        <AddedFeatures car={props.car} removeFeature={removeFeature}/>
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={props.additionalFeatures} />
+        <AdditionalFeatures additionalFeatures={props.additionalFeatures} buyItem={buyItem}/>
         <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>

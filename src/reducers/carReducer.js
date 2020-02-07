@@ -23,15 +23,22 @@ const carReducer = (state = initialState, action) => {
       case "ADD_FEATURES":
         return {
           ...state,
-          //AdditionalFeatures: [...state.AdditionalFeatures, action.payload]
-          features: [...state.features, action.payload]
+          car: { 
+            ...state.car, 
+            features: [...state.car.features, action.payload]
+          }
         }
+    
+        
       case "REMOVE_FEATURES":
-        const newFeatures = state.car.feature.filter(AddedFeature => AddedFeature !== action.payload)
+        const newFeatures = state.car.features.filter(features => features !== action.payload)
         return {
           ...state,
-          features: newFeatures
+          car: {
+            ...state.car,
+            features:  newFeatures
         }
+      }
         default:
             return state;
     }
