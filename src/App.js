@@ -20,8 +20,13 @@ const App = (props) => {
 
   const buyItem = item => {
     // dipsatch an action here to add an item
-    props.addFeatures(item)
-    props.updatePrice(item.price)
+    if(props.car.features.includes(item)) {
+      return alert("This feature has already been added, please choose a different feature")
+    }else {
+      props.addFeatures(item)
+      props.updatePrice(item.price)
+    }
+    
   };
 
   return (
