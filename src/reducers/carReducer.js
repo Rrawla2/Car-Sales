@@ -28,8 +28,6 @@ const carReducer = (state = initialState, action) => {
             features: [...state.car.features, action.payload]
           }
         }
-    
-        
       case "REMOVE_FEATURES":
         const newFeatures = state.car.features.filter(features => features !== action.payload)
         return {
@@ -37,8 +35,8 @@ const carReducer = (state = initialState, action) => {
           car: {
             ...state.car,
             features:  newFeatures
+          }
         }
-      }
       case "UPDATE_PRICE":
         return {
           ...state,
